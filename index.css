@@ -1,0 +1,98 @@
+:root {
+    --body-color: #4f709c;
+    --app-background: #f5efe7;
+    --border-radius: 4px;
+    --btn-bg: #525fe1;
+    --btn-bg-hover: #4a57dd;
+}
+
+
+/* General CSS */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    background-color: var(--body-color);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 96px 0;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* END ==> General CSS */
+
+
+/* ToDoListApp */
+.create-task-block {
+    padding: 16px 32px 8px 32px;
+}
+
+.filter-task-block {
+    padding: 8px 32px 32px 32px;
+}
+
+.create-task-block,
+.filter-task-block {
+    width: 250px;
+    background-color: var(--app-background);
+}
+
+.task-title {
+    margin: 0 0 16px;
+}
+
+.input-field {
+    margin-bottom: 16px;
+}
+
+.input-field input {
+    width: 100%;
+    height: 28px;
+}
+.collection {
+    padding: 0;
+}
+
+.collection-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collection-item span {
+    margin-right: 6px;
+}
+
+.collection-item span:last-child {
+    margin-right: 0;
+}
+
+.btn,
+.clear-tasks {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:focus { outline: 2px dotted #55d7dc; }
+}
+
+.draw-border {
+    padding: 8px;
+    background-color: var(--btn-bg);
+    color: white;
+}
+
+.draw-border:hover {
+    background-color: var(--btn-bg-hover);
+}
+
+/* END ==> ToDoListApp */
