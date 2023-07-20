@@ -51,6 +51,8 @@ function createSingleTaskElement(task) {
     const span = document.createElement('span');
     // Додаємо елементу клас
     span.className = 'text-item';
+    // Додаємо індивідуальний ID для атрибута в тегу li
+    li.setAttribute('data-task', task);
     // Додаємо елемент span до елементу li
     li.appendChild(span);
     // Кладемо в нього текстову ноду з задачею
@@ -127,6 +129,7 @@ function storeTaskInLocalStorage(task) {
 
     // Додаємо нову задачу в масив
     tasks.push(task);
+
     // Записуємо оновлений масив в localStorage
     setTasksToLocalStorage(tasks);
 }
@@ -182,6 +185,22 @@ function editSingleTask(event) {
                 // Змінюємо текст задачі через діалогове вікно prompt
                 const spanText = iconContainer.parentElement.querySelector('.text-item');
                 spanText.textContent = `${message}`;
+
+                // Отримуємо поточні задачі з localStorage
+                const tasks = getTasksFromLocalStorage();
+
+                // Отримуємо ID задачі з data атрибуту
+                const originalTask = iconContainer.parentElement.getAttribute('data-task');
+
+                // Знаходимо індекс об'єкта задачі в масиві за допомогою ID
+                const index = tasks.indexOf(originalTask);
+
+                // Якщо елемент знайдений, оновлюємо його в масиві
+                if (index !== -1) {
+                    tasks[index] = message;
+                    // Записуємо оновлений масив в localStorage
+                    setTasksToLocalStorage(tasks);
+                }
             }
         }
     }
